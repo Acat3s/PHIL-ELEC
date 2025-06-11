@@ -65,31 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-// Gestion du formulaire de contact
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Récupération des données du formulaire
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Simulation d'envoi (dans un vrai site, ceci serait envoyé à un serveur)
-            console.log('Données du formulaire:', data);
-            
-            // Affichage d'un message de confirmation
-            alert('Merci pour votre demande ! Nous vous recontacterons rapidement.');
-            
-            // Réinitialisation du formulaire
-            contactForm.reset();
-        });
-    }
-});
-
 // Fonction pour envoyer l'email
 function sendEmail(e) {
     e.preventDefault();
