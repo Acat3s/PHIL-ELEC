@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Phil Elec</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("C8kk2E6XWL2xH4bi1");
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -87,7 +93,7 @@
                         <h2>Demande de Devis</h2>
                         <p>Remplissez ce formulaire pour nous faire part de votre projet. Nous vous recontacterons rapidement.</p>
                         
-                        <form class="contact-form" id="contactForm">
+                        <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
                             <div class="form-group">
                                 <label for="name">Nom complet *</label>
                                 <input type="text" id="name" name="name" required>

@@ -90,3 +90,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Fonction pour envoyer l'email
+function sendEmail(e) {
+    e.preventDefault();
+
+    const form = document.getElementById('contactForm');
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Envoi en cours...';
+
+    const templateParams = {
+        from_name: form.name.value,
+        from_email: form.email.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        urgency: form.urgency.value,
+        message: form.message.value
+    };
+
+    emailjs.send('service_ft2412y', 'template_19l9t9o', templateParams)
+        .then(function(response) {
+            alert('Votre message a été envoyé avec succès ! Nous vous recontacterons rapidement.');
+            form.reset();
+        }, function(error) {
+            alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou nous contacter par téléphone.');
+        })
+        .finally(function() {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Envoyer ma demande';
+        });
+
+    return false;
+}
+
