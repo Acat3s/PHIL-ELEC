@@ -65,36 +65,118 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Fonction pour envoyer l'email
-function sendEmail(e) {
-    e.preventDefault();
 
-    const form = document.getElementById('contactForm');
-    const submitButton = form.querySelector('button[type="submit"]');
-    submitButton.disabled = true;
-    submitButton.textContent = 'Envoi en cours...';
-
-    const templateParams = {
-        from_name: form.name.value,
-        from_email: form.email.value,
-        phone: form.phone.value,
-        service: form.service.value,
-        urgency: form.urgency.value,
-        message: form.message.value
-    };
-
-    emailjs.send('service_ft2412y', 'template_19l9t9o', templateParams)
-        .then(function(response) {
-            alert('Votre message a été envoyé avec succès ! Nous vous recontacterons rapidement.');
-            form.reset();
-        }, function(error) {
-            alert('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou nous contacter par téléphone.');
-        })
-        .finally(function() {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Envoyer ma demande';
+// Gestion du formulaire de contact
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupération des données du formulaire
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Simulation d'envoi (dans un vrai site, ceci serait envoyé à un serveur)
+            console.log('Données du formulaire:', data);
+            
+            // Affichage d'un message de confirmation
+            alert('Merci pour votre demande ! Nous vous recontacterons rapidement.');
+            
+            // Réinitialisation du formulaire
+            contactForm.reset();
         });
+    }
+});
 
-    return false;
+
+
+// Fonctionnalités pour la page avis
+function toggleReviewForm() {
+    const form = document.getElementById('reviewForm');
+    if (form.style.display === 'none' || form.style.display === '') {
+        form.style.display = 'block';
+        form.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        form.style.display = 'none';
+    }
 }
+
+// Système d'étoiles pour les avis
+document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('.star-rating .star');
+    const ratingInput = document.getElementById('rating');
+    
+    if (stars.length > 0) {
+        stars.forEach((star, index) => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                ratingInput.value = rating;
+                
+                // Mettre à jour l'affichage des étoiles
+                stars.forEach((s, i) => {
+                    if (i < rating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseover', function() {
+                const rating = this.getAttribute('data-rating');
+                stars.forEach((s, i) => {
+                    if (i < rating) {
+                        s.style.opacity = '1';
+                    } else {
+                        s.style.opacity = '0.3';
+                    }
+                });
+            });
+        });
+        
+        // Restaurer l'état au survol
+        const starContainer = document.querySelector('.star-rating');
+        if (starContainer) {
+            starContainer.addEventListener('mouseleave', function() {
+                const currentRating = ratingInput.value;
+                stars.forEach((s, i) => {
+                    if (i < currentRating) {
+                        s.style.opacity = '1';
+                    } else {
+                        s.style.opacity = '0.3';
+                    }
+                });
+            });
+        }
+    }
+    
+    // Gestion du formulaire d'avis
+    const reviewForm = document.querySelector('.review-form');
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validation simple
+            const name = document.getElementById('reviewerName').value;
+            const rating = document.getElementById('rating').value;
+            const text = document.getElementById('reviewText').value;
+            const consent = document.getElementById('reviewConsent').checked;
+            
+            if (!name || !rating || !text || !consent) {
+                alert('Veuillez remplir tous les champs obligatoires et accepter les conditions.');
+                return;
+            }
+            
+            // Simulation d'envoi
+            alert('Merci pour votre témoignage ! Nous l\'examinerons avant publication.');
+            
+            // Réinitialiser le formulaire
+            reviewForm.reset();
+            stars.forEach(s => s.classList.remove('active'));
+            document.getElementById('reviewForm').style.display = 'none';
+        });
+    }
+});
 
