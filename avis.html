@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avis Clients - Phil Elec</title>
     <link rel="stylesheet" href="styles.css">
+    <script>(function (w,d,s,o,r,js,fjs) {
+    w[r]=w[r]||function() {(w[r].q = w[r].q || []).push(arguments)}
+    w[r]("app", "FvUxKvW1xP");
+    if(d.getElementById(o)) return;
+    js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+    js.id = o; js.src = "https://embed.trustmary.com/embed.js";
+    js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+  }(window, document, "script", "trustmary-embed", "tmary"));
+</script>
 </head>
 <body>
     <header>
@@ -38,58 +47,14 @@
         </section>
 
         <section class="reviews-display">
-            <div class="container">
-                <h2>Nos Avis Google</h2>
-                <p class="section-intro">Consultez les avis authentiques de nos clients sur Google My Business</p>
+            
                 
                 <!-- Widget Trustmary pour les avis Google -->
                 <div class="google-reviews-widget">
                     <script src="https://widget.trustmary.com/ODpqzyi1O"></script>
                 </div>
 
-                <!-- Alternative : Avis statiques en attendant -->
-                <div class="static-reviews">
-                    <h3>Témoignages de nos Clients</h3>
-                    <div class="reviews-grid">
-                        <div class="review-card">
-                            <div class="review-rating">
-                                <span class="stars">⭐⭐⭐⭐⭐</span>
-                                <span class="rating-text">5/5</span>
-                            </div>
-                            <p class="review-text">"Très professionnel, intervient même le week-end, tarif très compétitif. Répond toujours et donne des conseils par téléphone."</p>
-                            <div class="review-author">
-                                <strong>Regis P.</strong>
-                                <span class="review-date">Client vérifié</span>
-                            </div>
-                        </div>
-
-                        <div class="review-card">
-                            <div class="review-rating">
-                                <span class="stars">⭐⭐⭐⭐⭐</span>
-                                <span class="rating-text">5/5</span>
-                            </div>
-                            <p class="review-text">"J'ai fait appel à Phil Elec et je recommande vivement ses services. Travail de qualité et respect des délais."</p>
-                            <div class="review-author">
-                                <strong>Mylène L.</strong>
-                                <span class="review-date">Client vérifié</span>
-                            </div>
-                        </div>
-
-                        <div class="review-card">
-                            <div class="review-rating">
-                                <span class="stars">⭐⭐⭐⭐⭐</span>
-                                <span class="rating-text">5/5</span>
-                            </div>
-                            <p class="review-text">"Excellent service, électricien compétent et à l'écoute. Installation de borne IRVE parfaitement réalisée."</p>
-                            <div class="review-author">
-                                <strong>Marc D.</strong>
-                                <span class="review-date">Client vérifié</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                
 
         <section class="review-submission">
             <div class="container">
@@ -101,116 +66,18 @@
                         <div class="option-icon">🌟</div>
                         <h3>Avis Google</h3>
                         <p>Laissez un avis sur notre profil Google My Business pour aider d'autres clients</p>
-                        <a href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" target="_blank" class="review-button google-review">
+                        <a href="https://g.page/r/CStPiw8AHMbeEAE/review" target="_blank" class="review-button google-review">
                             Laisser un avis Google
                         </a>
                     </div>
 
-                    <div class="review-option">
-                        <div class="option-icon">📝</div>
-                        <h3>Formulaire de Témoignage</h3>
-                        <p>Partagez votre expérience directement avec nous</p>
-                        <button class="review-button local-review" onclick="toggleReviewForm()">
-                            Écrire un témoignage
-                        </button>
-                    </div>
                 </div>
 
-                <!-- Formulaire de témoignage -->
-                <div class="review-form-container" id="reviewForm" style="display: none;">
-                    <form class="review-form">
-                        <h3>Votre Témoignage</h3>
-                        
-                        <div class="form-group">
-                            <label for="reviewerName">Votre nom *</label>
-                            <input type="text" id="reviewerName" name="reviewerName" required>
-                        </div>
+                
 
-                        <div class="form-group">
-                            <label for="reviewerEmail">Email (optionnel)</label>
-                            <input type="email" id="reviewerEmail" name="reviewerEmail">
-                        </div>
+        
 
-                        <div class="form-group">
-                            <label for="serviceType">Service utilisé</label>
-                            <select id="serviceType" name="serviceType">
-                                <option value="">Sélectionnez un service</option>
-                                <option value="installation">Installation électrique</option>
-                                <option value="renovation">Rénovation électrique</option>
-                                <option value="mise-aux-normes">Mise aux normes</option>
-                                <option value="borne-irve">Pose de borne IRVE</option>
-                                <option value="domotique">Domotique</option>
-                                <option value="depannage">Dépannage</option>
-                                <option value="autre">Autre</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="rating">Note *</label>
-                            <div class="star-rating" id="starRating">
-                                <span class="star" data-rating="1">⭐</span>
-                                <span class="star" data-rating="2">⭐</span>
-                                <span class="star" data-rating="3">⭐</span>
-                                <span class="star" data-rating="4">⭐</span>
-                                <span class="star" data-rating="5">⭐</span>
-                            </div>
-                            <input type="hidden" id="rating" name="rating" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="reviewText">Votre avis *</label>
-                            <textarea id="reviewText" name="reviewText" rows="5" required 
-                                placeholder="Décrivez votre expérience avec Phil Elec..."></textarea>
-                        </div>
-
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="reviewConsent" name="reviewConsent" required>
-                            <label for="reviewConsent">J'autorise Phil Elec à publier ce témoignage sur son site web *</label>
-                        </div>
-
-                        <button type="submit" class="submit-button">Envoyer mon témoignage</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <section class="review-stats">
-            <div class="container">
-                <h2>Nos Statistiques</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">4.8</div>
-                        <div class="stat-label">Note moyenne</div>
-                        <div class="stat-stars">⭐⭐⭐⭐⭐</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Clients satisfaits</div>
-                        <div class="stat-icon">😊</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Recommandations</div>
-                        <div class="stat-icon">👍</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="review-cta">
-            <div class="container">
-                <h2>Votre Avis Compte !</h2>
-                <p>Aidez-nous à améliorer nos services et à aider d'autres clients à faire le bon choix</p>
-                <div class="cta-buttons">
-                    <a href="https://g.page/r/YOUR_GOOGLE_BUSINESS_ID/review" target="_blank" class="cta-button">
-                        Laisser un avis Google
-                    </a>
-                    <a href="contact.html" class="secondary-button">
-                        Nous contacter
-                    </a>
-                </div>
-            </div>
-        </section>
+        
     </main>
 
     <footer>
