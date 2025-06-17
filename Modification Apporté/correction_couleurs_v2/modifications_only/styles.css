@@ -507,24 +507,6 @@ footer {
     margin: 0 auto;
 }
 
-/* Portrait dans la page À Propos */
-.page-header-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: center;
-}
-.page-header-image {
-    text-align: center;
-}
-.header-img {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 /* Styles pour la page Services */
 .services-detailed {
     padding: 80px 0;
@@ -670,7 +652,7 @@ footer {
 
 .about-grid {
     display: grid;
-    grid-template-columns: auto 2fr;
+    grid-template-columns: 2fr 1fr;
     gap: 4rem;
     align-items: start;
 }
@@ -691,8 +673,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    grid-column: 2;
-    margin-top: 1rem;
 }
 
 .highlight-card {
@@ -1137,11 +1117,6 @@ footer {
 .logo {
     display: flex;
     align-items: center;
-    text-decoration: none;
-}
-
-.logo a {
-    line-height: 0;
 }
 
 
@@ -1762,29 +1737,5 @@ a[href^="tel:"] {
 
 .contact-text a[href^="mailto:"]:hover {
     text-decoration: underline;
-}
-
-/* Style pour la photo dans la section À Propos */
-.about-photo {
-    grid-row: 1 / span 2;
-}
-
-.about-photo-img {
-    max-width: 250px;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 2rem;
-}
-
-.about-text {
-    grid-column: 2;
-}
-
-.about-highlights {
-    grid-column: 2;
-    margin-top: 1rem;
 }
 

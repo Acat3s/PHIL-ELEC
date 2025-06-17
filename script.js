@@ -74,18 +74,19 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Récupération des données du formulaire
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
-            
-            // Simulation d'envoi (dans un vrai site, ceci serait envoyé à un serveur)
-            console.log('Données du formulaire:', data);
-            
-            // Affichage d'un message de confirmation
-            alert('Merci pour votre demande ! Nous vous recontacterons rapidement.');
-            
-            // Réinitialisation du formulaire
-            contactForm.reset();
+            // Initialisation d'EmailJS avec votre Clé Publique
+            emailjs.init('C8kk2E6XWL2xH4bi1'); 
+
+            // Envoi du formulaire via EmailJS
+            emailjs.sendForm('service_ft2412y', 'template_19l9t9o', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                    alert('Merci pour votre message ! Il a été envoyé avec succès.');
+                    contactForm.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Oups ! Une erreur est survenue. Votre message n\'a pas pu être envoyé. Veuillez réessayer.');
+                });
         });
     }
 });
@@ -178,5 +179,26 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('reviewForm').style.display = 'none';
         });
     }
+});
+
+// Rendre le logo cliquable vers la page d'accueil sur toutes les pages
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.site-logo').forEach(function(logo) {
+        logo.style.cursor = 'pointer';
+        logo.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    });
+});
+
+// Rendre tout le conteneur .logo cliquable vers la page d'accueil
+// (fallback pour garantir le clic)  
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.logo').forEach(function(logoContainer) {
+        logoContainer.style.cursor = 'pointer';
+        logoContainer.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    });
 });
 
